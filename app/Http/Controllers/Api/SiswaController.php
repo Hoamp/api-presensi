@@ -13,7 +13,7 @@ class SiswaController extends Controller
     public function index()
     {
         // ambil seluruh data siswa
-        $siswa = Siswa::latest()->get();
+        $siswa = Siswa::with(['absensi'])->latest()->get();
 
         // kembalikan collection $siswa ke resource
         return new SiswaResource(true, "Semua data siswa", $siswa);

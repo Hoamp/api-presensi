@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AbsensiController;
 use App\Http\Controllers\Api\SiswaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/siswa', SiswaController::class);
+Route::get('/absen/:id', [AbsensiController::class, 'show']);
+Route::put('/absen/:id', [AbsensiController::class, 'update']);
+Route::apiResource('/absen', AbsensiController::class);
